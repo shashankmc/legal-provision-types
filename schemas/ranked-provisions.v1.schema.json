@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/shashankmc/legal-provision-types/schemas/ranked-provisions.v1.schema.json",
+  "title": "ranked-provisions@1",
+  "description": "Ranked retrieval output: documents ranked by MAX provision score, provisions ranked within each document.",
+  "type": "object",
+  "required": ["query", "method", "threshold", "corpus_version", "documents"],
+  "properties": {
+    "case_id": { "type": "string" },
+    "query": { "type": "string" },
+    "method": { "type": "string" },
+    "threshold": { "type": "number" },
+    "corpus_version": { "type": ["string", "null"] },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/document" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "document": {
+      "type": "object",
+      "required": ["doc_id", "title", "score", "top_provision", "provisions"],
+      "properties": {
+        "doc_id": { "type": "string" },
+        "title": { "type": "string" },
+        "score": { "type": "number" },
+        "top_provision": { "type": "string" },
+        "provisions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/provision" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "provision": {
+      "type": "object",
+      "required": ["prov_id", "citation", "article", "score", "text_preview"],
+      "properties": {
+        "prov_id": { "type": "string" },
+        "citation": { "type": ["string", "null"] },
+        "article": { "type": "string" },
+        "score": { "type": "number" },
+        "text_preview": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
