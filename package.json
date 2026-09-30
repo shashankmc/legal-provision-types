@@ -1,0 +1,49 @@
+{
+  "name": "legal-provision-types",
+  "version": "0.1.0",
+  "description": "Shared port types for BlueLab (case@1, ranked-provisions@1, provision-set@1) as TypeScript types plus JSON Schema. No client, no requests, no credentials — safe to import from browser code.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashankmc/legal-provision-types.git"
+  },
+  "homepage": "https://github.com/shashankmc/legal-provision-types#readme",
+  "bugs": {
+    "url": "https://github.com/shashankmc/legal-provision-types/issues"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "schemas",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./schemas/*": "./schemas/*"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "check:schemas": "node scripts/check-schemas.mjs",
+    "test": "npm run build && npm run check:schemas",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "legal",
+    "provision",
+    "types",
+    "schema",
+    "bluelab"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "typescript": "^5.9.3"
+  }
+}
