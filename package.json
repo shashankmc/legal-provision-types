@@ -32,7 +32,8 @@
     "clean": "rm -rf dist",
     "check:schemas": "node scripts/check-schemas.mjs",
     "test": "npm run build && npm run check:schemas",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
   },
   "keywords": [
     "legal",
