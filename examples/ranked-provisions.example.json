@@ -1,0 +1,24 @@
+{
+  "case_id": "halden",
+  "query": "marine genetic resources benefit-sharing",
+  "method": "bm25",
+  "threshold": 0.2,
+  "corpus_version": "1.0",
+  "documents": [
+    {
+      "doc_id": "bbnj",
+      "title": "BBNJ Agreement",
+      "score": 1.0,
+      "top_provision": "bbnj_art11_1",
+      "provisions": [
+        {
+          "prov_id": "bbnj_art11_1",
+          "citation": "BBNJ Art. 11(1)",
+          "article": "Art. 11",
+          "score": 1.0,
+          "text_preview": "Marine genetic resources ..."
+        }
+      ]
+    }
+  ]
+}
