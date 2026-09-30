@@ -1,0 +1,11 @@
+{
+  "case_id": "halden",
+  "title": "Halden Biocatalysis",
+  "fact_pattern": "Halden Enzyme Solutions isolates a novel esterase from a hydrothermal-vent organism collected in an area beyond national jurisdiction.",
+  "facts": {
+    "who": "Halden Enzyme Solutions, Norwegian biotech SME",
+    "what": "isolation of a thermostable esterase",
+    "where_collected": "Mid-Atlantic Ridge, 2,200 m depth (ABNJ)"
+  },
+  "origin": "scenario"
+}

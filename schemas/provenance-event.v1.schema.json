@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/shashankmc/legal-provision-types/schemas/provenance-event.v1.schema.json",
+  "title": "ProvenanceEvent@1",
+  "description": "One review action in the provenance trail.",
+  "type": "object",
+  "required": ["timestamp", "action", "target_kind"],
+  "properties": {
+    "timestamp": { "type": "string" },
+    "action": { "type": "string" },
+    "target_kind": { "enum": ["case", "document", "provision", "retrieval"] },
+    "target_id": { "type": ["string", "null"] },
+    "reason": { "type": ["string", "null"] },
+    "method": { "type": ["string", "null"] },
+    "threshold": { "type": ["number", "null"] }
+  },
+  "additionalProperties": false
+}

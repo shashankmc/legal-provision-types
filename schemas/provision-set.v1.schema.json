@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/shashankmc/legal-provision-types/schemas/provision-set.v1.schema.json",
+  "title": "provision-set@1",
+  "description": "A reviewer's document/provision selection, with exclusions and the provenance trail.",
+  "type": "object",
+  "required": ["corpus_version", "method", "threshold", "documents", "provisions", "excluded", "provenance"],
+  "properties": {
+    "case_id": { "type": "string" },
+    "corpus_version": { "type": ["string", "null"] },
+    "method": { "type": "string" },
+    "threshold": { "type": "number" },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/document" }
+    },
+    "provisions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/provision" }
+    },
+    "excluded": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/excluded" }
+    },
+    "provenance": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/provenance-event" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "document": {
+      "type": "object",
+      "required": ["doc_id", "title", "origin"],
+      "properties": {
+        "doc_id": { "type": "string" },
+        "title": { "type": "string" },
+        "origin": { "enum": ["system", "manual"] }
+      },
+      "additionalProperties": false
+    },
+    "provision": {
+      "type": "object",
+      "required": ["prov_id", "doc_id", "citation", "text", "score", "source"],
+      "properties": {
+        "prov_id": { "type": "string" },
+        "doc_id": { "type": "string" },
+        "citation": { "type": ["string", "null"] },
+        "text": { "type": ["string", "null"] },
+        "score": { "type": ["number", "null"] },
+        "source": { "enum": ["system", "manual"] }
+      },
+      "additionalProperties": false
+    },
+    "excluded": {
+      "type": "object",
+      "required": ["doc_id", "reason"],
+      "properties": {
+        "doc_id": { "type": "string" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "provenance-event": {
+      "type": "object",
+      "required": ["timestamp", "action", "target_kind"],
+      "properties": {
+        "timestamp": { "type": "string" },
+        "action": { "type": "string" },
+        "target_kind": { "enum": ["case", "document", "provision", "retrieval"] },
+        "target_id": { "type": ["string", "null"] },
+        "reason": { "type": ["string", "null"] },
+        "method": { "type": ["string", "null"] },
+        "threshold": { "type": ["number", "null"] }
+      },
+      "additionalProperties": false
+    }
+  }
+}

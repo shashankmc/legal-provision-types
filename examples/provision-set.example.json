@@ -1,0 +1,38 @@
+{
+  "case_id": "halden",
+  "corpus_version": "1.0",
+  "method": "bm25",
+  "threshold": 0.2,
+  "documents": [
+    { "doc_id": "bbnj", "title": "BBNJ Agreement", "origin": "system" },
+    { "doc_id": "nagoya", "title": "Nagoya Protocol", "origin": "manual" }
+  ],
+  "provisions": [
+    {
+      "prov_id": "bbnj_art11_1",
+      "doc_id": "bbnj",
+      "citation": "BBNJ Art. 11(1)",
+      "text": "Marine genetic resources ...",
+      "score": 1.0,
+      "source": "system"
+    }
+  ],
+  "excluded": [
+    { "doc_id": "trips", "reason": "not relevant to the fact pattern" }
+  ],
+  "provenance": [
+    {
+      "timestamp": "2026-09-30T10:00:00Z",
+      "action": "load_scenario",
+      "target_kind": "case",
+      "target_id": "halden"
+    },
+    {
+      "timestamp": "2026-09-30T10:00:05Z",
+      "action": "exclude_document",
+      "target_kind": "document",
+      "target_id": "trips",
+      "reason": "not relevant to the fact pattern"
+    }
+  ]
+}

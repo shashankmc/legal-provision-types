@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/shashankmc/legal-provision-types/schemas/case.v1.schema.json",
+  "title": "case@1",
+  "description": "A compliance case: a fact pattern plus structured facts.",
+  "type": "object",
+  "required": ["title", "fact_pattern", "facts", "origin"],
+  "properties": {
+    "case_id": { "type": "string" },
+    "title": { "type": "string" },
+    "fact_pattern": { "type": "string" },
+    "facts": { "type": "object", "additionalProperties": true },
+    "origin": { "enum": ["scenario", "custom"] }
+  },
+  "additionalProperties": false
+}
